@@ -1,5 +1,5 @@
 # pyDeepDirtPilot
-Self-driving Python Agent using Deep Learning Algorithm on Dirt Rally Game. A fork of https://github.com/marsauto/europilot.
+Self-driving Python Agent using Deep Learning Algorithm on TORCS Game. A fork of https://github.com/marsauto/europilot.
 
 ## References
 * [RacingGameTelemetry](https://github.com/BOSSoNe0013/RacingGameTelemetry)
