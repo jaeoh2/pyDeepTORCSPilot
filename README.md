@@ -6,3 +6,4 @@ Self-driving Python Agent using Deep Learning Algorithm on TORCS Game. A fork of
 * [Logitech G27](https://github.com/felixhummel/g27)
 * [Python-uinput](http://tjjr.fi/sw/python-uinput/)
 * [ImageGrab](https://github.com/ponty/pyscreenshot)
+* [PyGTA5](https://github.com/Sentdex/pygta5)
