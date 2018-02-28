@@ -1,12 +1,18 @@
 import os
 import sys
+import socket
+import struct
 from collections import OrderedDict
+
+        
 
 class Telemetry(object):
     # refer from : https://github.com/BOSSoNe0013/RacingGameTelemetry/blob/master/tools/telemetry.py
     # refer from : https://github.com/marsauto/europilot/blob/master/europilot/controllerstate.py
-    def __init__(self):
+    def __init__(self, hostname='127.0.0.1', port):
         self.state = self.__init_dict()
+        self.hostname = hostname
+        self.port = port
 
     def __init_dict(self):
         """Initialize the values for each of the controller output"""
@@ -106,7 +112,13 @@ class Telemetry(object):
     def get_state(self):
         """Returns the latest state"""
         return self.state
+
+    def connect(self):
+        try:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            sock.bind((self.hostname, self.port))
+        except Exception as e:
+            sock.close()
     
     def parse(self, data):
-        pass
-
+        stats = struct.unpack('66f', data[0:264]) # TODO implement this method
