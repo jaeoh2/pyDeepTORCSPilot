@@ -1,4 +1,8 @@
-class ControlStates(object):
+import os
+import sys
+from collections import OrderedDict
+
+class Telemetry(object):
     # refer from : https://github.com/BOSSoNe0013/RacingGameTelemetry/blob/master/tools/telemetry.py
     # refer from : https://github.com/marsauto/europilot/blob/master/europilot/controllerstate.py
     def __init__(self):
@@ -102,4 +106,7 @@ class ControlStates(object):
     def get_state(self):
         """Returns the latest state"""
         return self.state
+    
+    def parse(self, data):
+        pass
 
