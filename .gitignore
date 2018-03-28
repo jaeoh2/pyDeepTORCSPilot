@@ -1,0 +1,7 @@
+*.a
+build/
+devel/
+.ipynb_checkpoints/
+.catkin_workspace
+train_data
+logs/
