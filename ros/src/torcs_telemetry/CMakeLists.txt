@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(torcs_img_pub)
+project(torcs_telemetry)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -8,12 +8,10 @@ project(torcs_img_pub)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
   rospy
   sensor_msgs
   std_msgs
 )
-
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -72,7 +70,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
+#   sensor_msgs#   std_msgs
 # )
 
 ################################################
@@ -106,8 +104,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES torcs_img_pub
-#  CATKIN_DEPENDS other_catkin_pkg
+#  LIBRARIES torcs_telemetry_pub
+#  CATKIN_DEPENDS rospy sensor_msgs std_msgs
 #  DEPENDS system_lib
 )
 
@@ -118,13 +116,13 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-  include
+# include
   ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/torcs_img_pub.cpp
+#   src/${PROJECT_NAME}/torcs_telemetry_pub.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -135,7 +133,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/torcs_img_pub_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/torcs_telemetry_pub_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -165,10 +163,10 @@ include_directories(
 #   scripts/my_python_script
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
-  install(PROGRAMS
-    src/torcs_img_pub.py
-    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-  )
+ install(PROGRAMS
+   src/torcs_telemetry.py
+   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+ )
 
 ## Mark executables and/or libraries for installation
 # install(TARGETS ${PROJECT_NAME} ${PROJECT_NAME}_node
@@ -196,7 +194,7 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_torcs_img_pub.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_torcs_telemetry_pub.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
