@@ -75,7 +75,8 @@ def destringify(s):
     '''makes a string into a value or a list of strings into a list of
     values (if possible)'''
     if not s: return s
-    if type(s) is str:
+    # if type(s) is str:
+    if type(s) is unicode:
         try:
             return float(s)
         except ValueError:
@@ -188,7 +189,7 @@ class Client(object):
                 sockdata = sockdata.decode('utf-8')
             except socket.error as emsg:
                 # print('.', end=' ')
-                print "Waiting for data on %d.............." % self.port
+                print("Waiting for data on %d.............." % self.port)
             if '***identified***' in sockdata:
                 print("Client connected on %d.............." % self.port)
                 continue
@@ -208,7 +209,7 @@ class Client(object):
                 continue  # Try again.
             else:
                 self.S.parse_server_str(sockdata)
-                rospy.loginfo(sockdata)
+                # rospy.loginfo(sockdata)
                 if self.debug:
                     sys.stderr.write("\x1b[2J\x1b[H")  # Clear for steady output.
                     print(self.S)
@@ -223,6 +224,7 @@ class Client(object):
             print("Error sending to server: %s Message %s" % (emsg[1], str(emsg[0])))
             sys.exit(-1)
         if self.debug: print(self.R.fancyout())
+        rospy.loginfo(self.R.fancyout())
         # Or use this for plain output:
         # if self.debug: print self.R
 
@@ -266,13 +268,13 @@ class ServerState():
         '''Specialty output for useful ServerState monitoring.'''
         out= str()
         sensors= [ # Select the ones you want in the order you want them.
-        #'curLapTime',
-        #'lastLapTime',
-        # 'stucktimer',
-        #'damage',
-        #'focus',
+        'curLapTime',
+        'lastLapTime',
+        'stucktimer',
+        'damage',
+        'focus',
         'fuel',
-        #'gear',
+        'gear',
         'distRaced',
         'distFromStart',
         'racePos',
@@ -466,7 +468,7 @@ def drive_example(c):
     target_speed=100
 
     # Steer To Corner
-    R['steer']= S['angle']*10 / np.pi
+    R['steer']= S['angle']*25 / np.pi
     # Steer To Center
     R['steer']-= S['trackPos']*.10
 
