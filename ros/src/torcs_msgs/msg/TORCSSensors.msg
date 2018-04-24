@@ -1,24 +1,29 @@
 std_msgs/Header header
 # Angle between the car direction and the direction of the track axis [-PI,PI] in rad
-float64 angle
+float32 angle
 # Time elapsed during current lap in seconds
-float64 currentLapTime
+float32 currentLapTime
 # Current damage of the car (the higher is the value the higher is the damage)
-float64 damage
+float32 damage
 # Distance of the car from the start line along the track line
-float64 distFromStart
+float32 distFromStart
 # Distance covered by the car from the beginning of the race
-float64 distRaced
+float32 distRaced
 # Current fuel level
-float64 fuel
+float32 fuel
 # Current gear: -1 is reverse, 0 is neutral and the gear from 1 to 6
 uint8 gear
 # Time to complete the last lap
-float64 lastLapTime
+float32 lastLapTime
+
+float32[36] opponents
 # Position in the race with respect to other cars
 uint8 racePos
 # Number of rotation per minute of the car engine
-float64 rpm
+float32 rpm
+float32 speedX
+float32 speedY
+float32 speedZ
 # Distance between the car and the track axis. The value is
 # normalized w.r.t to the track width: it is 0 when car is on
 # the axis, -1 when the car is on the right edge of the track
@@ -28,7 +33,10 @@ float64 rpm
 float64 trackPos
 # Vector of 4 sensors representing the rotation speed of
 # wheels in radians
-float64[] wheelSpinVel
+float64[4] wheelSpinVel
 # Distance of the car mass center from the surface of the track
 # along the Z axis in meters
 float64 z
+
+float32[5] focus
+float32[19] trackSensor
