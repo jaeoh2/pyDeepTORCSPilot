@@ -5,3 +5,4 @@ Communicate with [vtorcs](https://github.com/giuse/vtorcs/tree/nosegfault)
 ## Packages
 ### torcs_img_pub
 ### torcs_msgs
+### torcs_telemetry
