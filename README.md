@@ -8,3 +8,4 @@ A fork of https://github.com/marsauto/europilot , https://github.com/fmirus/torc
 * [Python-uinput](http://tjjr.fi/sw/python-uinput/)
 * [ImageGrab](https://github.com/ponty/pyscreenshot)
 * [PyGTA5](https://github.com/Sentdex/pygta5)
+* [torcs_ros](https://github.com/fmirus/torcs_ros)
