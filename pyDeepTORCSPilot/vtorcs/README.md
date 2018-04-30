@@ -9,7 +9,7 @@ sudo apt-get install libglib2.0-dev  libgl1-mesa-dev libglu1-mesa-dev  freeglut3
 make
 make install
 make datainstall
-./torcs
+./BUILD/bin/torcs
 ```
 
 Get to run the quickrace - you won't be able to though, it will lock expecting a car to connect from the network. It's the sign that everything's good to go!
