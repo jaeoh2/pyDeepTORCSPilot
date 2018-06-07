@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(torcs_telemetry)
+project(torcs_ros_client)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -164,7 +164,7 @@ include_directories(
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
  install(PROGRAMS
-   src/torcs_telemetry.py
+   src/torcs_ros_client.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 

@@ -320,7 +320,7 @@ def drive_example(c):
 
 if __name__ == '__main__':
     try:
-        rospy.init_node('torcs_telemetry', anonymous=True)
+        rospy.init_node('torcs_ros_client', anonymous=True)
         client = Client(p=3001)
 
         while not rospy.is_shutdown():
