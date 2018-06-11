@@ -8,6 +8,13 @@ from sensor_msgs.msg import Image
 import numpy as np
 import threading
 
+import json
+
+from scipy import misc
+
+from keras.optimizers import SGD
+from keras.models import model_from_json
+
 # refer from : https://github.com/udacity/self-driving-car/blob/master/steering-models/steering-node/steering_node.py
 
 class SteeringNode(object):
@@ -48,3 +55,26 @@ class SteeringNode(object):
 
         self.pub.publish(message)
 
+
+def process(model, img):
+    img = misc.imresize(img[320:, :, :], (50, 200, 3))
+    steering = model.predict(img[None, :, :, :])[0][0]
+    print steering
+    return steering
+
+
+def get_model(model_file):
+    with open(model_file, 'r') as jfile:
+        model = model_from_json(json.load(jfile))
+
+    sgd = SGD(lr=0.0001, decay=1e-6, momentum=0.9, nesterov=True)
+    model.compile(sgd, "mse")
+    weights_file = model_file.replace('json', 'keras')
+    model.load_weights(weights_file)
+    return model
+
+
+if __name__ == "__main__":
+    model_json = '' # path to model definition json
+    node = SteeringNode(lambda: get_model(model_json), process)
+    rospy.spin()
