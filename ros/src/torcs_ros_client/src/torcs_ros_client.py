@@ -116,7 +116,6 @@ class Client(object):
                 print("Client connected on %d.............." % self.port)
                 break
 
-
     def get_servers_input(self):
         '''Server's input is stored in a ServerState object'''
         if not self.so: return
@@ -184,7 +183,6 @@ class Client(object):
                     print(self.S)
                 break  # Can now return from this function.
 
-
     def respond_to_server(self):
         if not self.so: return
         try:
@@ -194,15 +192,13 @@ class Client(object):
         except socket.error as emsg:
             print("Error sending to server: %s Message %s" % (emsg[1], str(emsg[0])))
 
-
     def drive_control(self, torcs_ctrl):
         if not self.so: return
 
-        self.R['steer'] = torcs_ctrl.steering
-        self.R['accel'] = torcs_ctrl.accel
-        self.R['gear'] = torcs_ctrl.gear
-        self.R['brake'] = torcs_ctrl.brake
-
+        self.R.d['steer'] = torcs_ctrl.steering
+        self.R.d['accel'] = torcs_ctrl.accel
+        self.R.d['gear'] = torcs_ctrl.gear
+        self.R.d['brake'] = torcs_ctrl.brake
 
     def shutdown(self):
         if not self.so: return
@@ -325,9 +321,8 @@ if __name__ == '__main__':
 
         while not rospy.is_shutdown():
             # ToDo: Implement server status publisher
-            # rospy.spin()
             client.get_servers_input()
-            drive_example(client)
+            # drive_example(client)
             client.respond_to_server()
             # rate.sleep()
 
