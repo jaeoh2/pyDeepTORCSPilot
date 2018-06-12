@@ -8,7 +8,7 @@ from cv_bridge import CvBridge
 import numpy as np
 import mss
 
-monitor = {'top': 40, 'left': 0, 'width': 800, 'height': 640}
+monitor = {'top': 60, 'left': 0, 'width': 800, 'height': 660}
 
 def img_pub():
     pub = rospy.Publisher('/image_color', Image, queue_size=1)
