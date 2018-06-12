@@ -19,7 +19,7 @@ def img_pub():
         with mss.mss() as sct:
             img = sct.grab(monitor)
 
-	ros_img = cbridge.cv2_to_imgmsg(np.asarray(img), 'rgba8')
+        ros_img = cbridge.cv2_to_imgmsg(np.asarray(img), 'rgba8')
         pub.publish(ros_img)
 
         rate.sleep()
