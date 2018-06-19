@@ -20,6 +20,7 @@ def img_pub():
             img = sct.grab(monitor)
 
         ros_img = cbridge.cv2_to_imgmsg(np.asarray(img), 'bgra8')
+	ros_img.header.stamp = rospy.Time.now()	
         pub.publish(ros_img)
 
         rate.sleep()
