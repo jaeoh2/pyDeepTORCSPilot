@@ -165,6 +165,7 @@ include_directories(
 # )
  install(PROGRAMS
    src/torcs_ros_ctrl.py
+   src/torcs_ros_get_traindata.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 
