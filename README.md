@@ -1,6 +1,8 @@
 # pyDeepTORCSPilot
-Self-driving Python Agent using Deep Learning Algorithm on TORCS Game.
+Self-driving Agent using ROS, Python and Deep Learning Algorithm on TORCS Game.
 A fork of https://github.com/marsauto/europilot , https://github.com/fmirus/torcs_ros
+
+# ROS
 
 ## References
 * [RacingGameTelemetry](https://github.com/BOSSoNe0013/RacingGameTelemetry)
